@@ -1,0 +1,2208 @@
+name: facebookresearch/pytorch3d/build_and_test
+on:
+  push:
+    branches:
+    - main
+jobs:
+  binary_linux_conda:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.12.0
+      python_version: '3.8'
+      cu_version: cu113
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda113
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_1:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.12.0
+      python_version: '3.8'
+      cu_version: cu116
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda116
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_2:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.12.1
+      python_version: '3.8'
+      cu_version: cu113
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda113
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_3:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.12.1
+      python_version: '3.8'
+      cu_version: cu116
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda116
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_4:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.13.0
+      python_version: '3.8'
+      cu_version: cu116
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda116
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_5:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.13.0
+      python_version: '3.8'
+      cu_version: cu117
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda117
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_6:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.13.1
+      python_version: '3.8'
+      cu_version: cu116
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda116
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_7:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.13.1
+      python_version: '3.8'
+      cu_version: cu117
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda117
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_8:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.0.0
+      python_version: '3.8'
+      cu_version: cu117
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda117
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_9:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.0.0
+      python_version: '3.8'
+      cu_version: cu118
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda118
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_10:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.0.1
+      python_version: '3.8'
+      cu_version: cu117
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda117
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_11:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.0.1
+      python_version: '3.8'
+      cu_version: cu118
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda118
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_12:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.0
+      python_version: '3.8'
+      cu_version: cu118
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda118
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_13:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.0
+      python_version: '3.8'
+      cu_version: cu121
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda121
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_14:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.1
+      python_version: '3.8'
+      cu_version: cu118
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda118
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_15:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.1
+      python_version: '3.8'
+      cu_version: cu121
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda121
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_16:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.2
+      python_version: '3.8'
+      cu_version: cu118
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda118
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_17:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.2
+      python_version: '3.8'
+      cu_version: cu121
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda121
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_18:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.2.0
+      python_version: '3.8'
+      cu_version: cu118
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda118
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_19:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.2.0
+      python_version: '3.8'
+      cu_version: cu121
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda121
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_20:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.12.0
+      python_version: '3.9'
+      cu_version: cu113
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda113
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_21:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.12.0
+      python_version: '3.9'
+      cu_version: cu116
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda116
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_22:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.12.1
+      python_version: '3.9'
+      cu_version: cu113
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda113
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_23:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.12.1
+      python_version: '3.9'
+      cu_version: cu116
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda116
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_24:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.13.0
+      python_version: '3.9'
+      cu_version: cu116
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda116
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_25:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.13.0
+      python_version: '3.9'
+      cu_version: cu117
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda117
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_26:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.13.1
+      python_version: '3.9'
+      cu_version: cu116
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda116
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_27:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.13.1
+      python_version: '3.9'
+      cu_version: cu117
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda117
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_28:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.0.0
+      python_version: '3.9'
+      cu_version: cu117
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda117
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_29:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.0.0
+      python_version: '3.9'
+      cu_version: cu118
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda118
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_30:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.0.1
+      python_version: '3.9'
+      cu_version: cu117
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda117
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_31:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.0.1
+      python_version: '3.9'
+      cu_version: cu118
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda118
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_32:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.0
+      python_version: '3.9'
+      cu_version: cu118
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda118
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_33:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.0
+      python_version: '3.9'
+      cu_version: cu121
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda121
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_34:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.1
+      python_version: '3.9'
+      cu_version: cu118
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda118
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_35:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.1
+      python_version: '3.9'
+      cu_version: cu121
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda121
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_36:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.2
+      python_version: '3.9'
+      cu_version: cu118
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda118
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_37:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.2
+      python_version: '3.9'
+      cu_version: cu121
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda121
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_38:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.2.0
+      python_version: '3.9'
+      cu_version: cu118
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda118
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_39:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.2.0
+      python_version: '3.9'
+      cu_version: cu121
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda121
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_40:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.12.0
+      python_version: '3.10'
+      cu_version: cu113
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda113
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_41:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.12.0
+      python_version: '3.10'
+      cu_version: cu116
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda116
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_42:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.12.1
+      python_version: '3.10'
+      cu_version: cu113
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda113
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_43:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.12.1
+      python_version: '3.10'
+      cu_version: cu116
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda116
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_44:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.13.0
+      python_version: '3.10'
+      cu_version: cu116
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda116
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_45:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.13.0
+      python_version: '3.10'
+      cu_version: cu117
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda117
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_46:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.13.1
+      python_version: '3.10'
+      cu_version: cu116
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda116
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_47:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 1.13.1
+      python_version: '3.10'
+      cu_version: cu117
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda117
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_48:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.0.0
+      python_version: '3.10'
+      cu_version: cu117
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda117
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_49:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.0.0
+      python_version: '3.10'
+      cu_version: cu118
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda118
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_50:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.0.1
+      python_version: '3.10'
+      cu_version: cu117
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda117
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_51:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.0.1
+      python_version: '3.10'
+      cu_version: cu118
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda118
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_52:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.0
+      python_version: '3.10'
+      cu_version: cu118
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda118
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_53:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.0
+      python_version: '3.10'
+      cu_version: cu121
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda121
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_54:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.1
+      python_version: '3.10'
+      cu_version: cu118
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda118
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_55:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.1
+      python_version: '3.10'
+      cu_version: cu121
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda121
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_56:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.2
+      python_version: '3.10'
+      cu_version: cu118
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda118
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_57:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.2
+      python_version: '3.10'
+      cu_version: cu121
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda121
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_58:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.2.0
+      python_version: '3.10'
+      cu_version: cu118
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda118
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_59:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.2.0
+      python_version: '3.10'
+      cu_version: cu121
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda121
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_60:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.0
+      python_version: '3.11'
+      cu_version: cu118
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda118
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_61:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.0
+      python_version: '3.11'
+      cu_version: cu121
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda121
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_62:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.1
+      python_version: '3.11'
+      cu_version: cu118
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda118
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_63:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.1
+      python_version: '3.11'
+      cu_version: cu121
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda121
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_64:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.2
+      python_version: '3.11'
+      cu_version: cu118
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda118
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_65:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.1.2
+      python_version: '3.11'
+      cu_version: cu121
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda121
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_66:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.2.0
+      python_version: '3.11'
+      cu_version: cu118
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda118
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_67:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.2.0
+      python_version: '3.11'
+      cu_version: cu121
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda121
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_68:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.2.0
+      python_version: '3.12'
+      cu_version: cu118
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda118
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_69:
+    runs-on: ubuntu-latest
+    container:
+      image: "${{ env.conda_docker_image }}"
+      credentials:
+        username: "$DOCKERHUB_USERNAME"
+        password: "$DOCKERHUB_TOKEN"
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.2.0
+      python_version: '3.12'
+      cu_version: cu121
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-builder:cuda121
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: build
+      run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64"
+    - uses: actions/upload-artifact@v4.1.0
+      with:
+        path: "/opt/conda/conda-bld/linux-64/*"
+  binary_linux_conda_cuda:
+    runs-on: ubuntu-latest
+    env:
+      PYTHON_VERSION: "${{ env.python_version }}"
+      BUILD_VERSION: "${{ env.build_version }}"
+      PYTORCH_VERSION: "${{ env.pytorch_version }}"
+      CU_VERSION: "${{ env.cu_version }}"
+      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
+      build_version: ''
+      pytorch_version: 2.0.1
+      python_version: '3.10'
+      cu_version: cu117
+      wheel_docker_image: pytorch/manylinux-cuda101
+      conda_docker_image: pytorch/conda-cuda
+      DOCKERHUB_TOKEN:
+      DOCKERHUB_USERNAME:
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: Pull docker image
+      run: |-
+        nvidia-smi
+        set -e
+        { docker login -u="$DOCKERHUB_USERNAME" -p="$DOCKERHUB_TOKEN" ; } 2> /dev/null
+        echo Pulling docker image $TESTRUN_DOCKER_IMAGE
+        docker pull $TESTRUN_DOCKER_IMAGE
+    - name: Build and run tests
+      run: |-
+        set -e
+        cd ${HOME}/project/
+        export JUST_TESTRUN=1
+        VARS_TO_PASS="-e PYTHON_VERSION -e BUILD_VERSION -e PYTORCH_VERSION -e CU_VERSION -e JUST_TESTRUN"
+        docker run --gpus all  --ipc=host -v $(pwd):/remote -w /remote ${VARS_TO_PASS} ${TESTRUN_DOCKER_IMAGE} python3 ./packaging/build_conda.py
