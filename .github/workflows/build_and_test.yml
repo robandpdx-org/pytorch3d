@@ -7,94 +7,76 @@ jobs:
   binary_linux_conda:
     runs-on: ubuntu-latest
     container:
-      image: "${{ env.conda_docker_image }}"
+      image: pytorch/conda-builder:cuda113
       credentials:
         username: "$DOCKERHUB_USERNAME"
         password: "$DOCKERHUB_TOKEN"
     env:
-      PYTHON_VERSION: "${{ env.python_version }}"
-      BUILD_VERSION: "${{ env.build_version }}"
-      PYTORCH_VERSION: "${{ env.pytorch_version }}"
-      CU_VERSION: "${{ env.cu_version }}"
-      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
-      build_version: ''
-      pytorch_version: 1.12.0
-      python_version: '3.8'
-      cu_version: cu113
-      wheel_docker_image: pytorch/manylinux-cuda101
-      conda_docker_image: pytorch/conda-builder:cuda113
+      PYTHON_VERSION: "3.8"
+      BUILD_VERSION: "${{ github.run_number }}"
+      PYTORCH_VERSION: "1.12.0"
+      CU_VERSION: "cu113"
+      TESTRUN_DOCKER_IMAGE: "pytorch/conda-builder:cuda116"
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_1:
     runs-on: ubuntu-latest
     container:
-      image: "${{ env.conda_docker_image }}"
+      image: pytorch/conda-builder:cuda116
       credentials:
         username: "$DOCKERHUB_USERNAME"
         password: "$DOCKERHUB_TOKEN"
     env:
-      PYTHON_VERSION: "${{ env.python_version }}"
-      BUILD_VERSION: "${{ env.build_version }}"
-      PYTORCH_VERSION: "${{ env.pytorch_version }}"
-      CU_VERSION: "${{ env.cu_version }}"
-      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
-      build_version: ''
-      pytorch_version: 1.12.0
-      python_version: '3.8'
-      cu_version: cu116
-      wheel_docker_image: pytorch/manylinux-cuda101
-      conda_docker_image: pytorch/conda-builder:cuda116
+      PYTHON_VERSION: "3.8"
+      BUILD_VERSION: "${{ github.run_number }}"
+      PYTORCH_VERSION: "1.12.0"
+      CU_VERSION: "cu116"
+      TESTRUN_DOCKER_IMAGE: "pytorch/conda-builder:cuda116"
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_2:
     runs-on: ubuntu-latest
     container:
-      image: "${{ env.conda_docker_image }}"
+      image: pytorch/conda-builder:cuda113
       credentials:
         username: "$DOCKERHUB_USERNAME"
         password: "$DOCKERHUB_TOKEN"
     env:
-      PYTHON_VERSION: "${{ env.python_version }}"
-      BUILD_VERSION: "${{ env.build_version }}"
-      PYTORCH_VERSION: "${{ env.pytorch_version }}"
-      CU_VERSION: "${{ env.cu_version }}"
-      TESTRUN_DOCKER_IMAGE: "${{ env.conda_docker_image }}"
-      build_version: ''
-      pytorch_version: 1.12.1
-      python_version: '3.8'
-      cu_version: cu113
-      wheel_docker_image: pytorch/manylinux-cuda101
-      conda_docker_image: pytorch/conda-builder:cuda113
+      PYTHON_VERSION: "3.8"
+      BUILD_VERSION: "${{ github.run_number }}"
+      PYTORCH_VERSION: "1.12.1"
+      CU_VERSION: "cu113"
+      TESTRUN_DOCKER_IMAGE: pytorch/conda-builder:cuda113
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_3:
@@ -119,13 +101,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_4:
@@ -150,13 +132,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_5:
@@ -181,13 +163,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_6:
@@ -212,13 +194,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_7:
@@ -243,13 +225,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_8:
@@ -274,13 +256,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_9:
@@ -305,13 +287,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_10:
@@ -336,13 +318,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_11:
@@ -367,13 +349,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_12:
@@ -398,13 +380,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_13:
@@ -429,13 +411,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_14:
@@ -460,13 +442,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_15:
@@ -491,13 +473,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_16:
@@ -522,13 +504,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_17:
@@ -553,13 +535,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_18:
@@ -584,13 +566,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_19:
@@ -615,13 +597,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_20:
@@ -646,13 +628,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_21:
@@ -677,13 +659,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_22:
@@ -708,13 +690,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_23:
@@ -739,13 +721,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_24:
@@ -770,13 +752,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_25:
@@ -801,13 +783,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_26:
@@ -832,13 +814,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_27:
@@ -863,13 +845,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_28:
@@ -894,13 +876,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_29:
@@ -925,13 +907,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_30:
@@ -956,13 +938,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_31:
@@ -987,13 +969,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_32:
@@ -1018,13 +1000,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_33:
@@ -1049,13 +1031,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_34:
@@ -1080,13 +1062,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_35:
@@ -1111,13 +1093,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_36:
@@ -1142,13 +1124,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_37:
@@ -1173,13 +1155,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_38:
@@ -1204,13 +1186,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_39:
@@ -1235,13 +1217,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_40:
@@ -1266,13 +1248,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_41:
@@ -1297,13 +1279,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_42:
@@ -1328,13 +1310,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_43:
@@ -1359,13 +1341,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_44:
@@ -1390,13 +1372,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_45:
@@ -1421,13 +1403,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_46:
@@ -1452,13 +1434,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_47:
@@ -1483,13 +1465,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_48:
@@ -1514,13 +1496,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_49:
@@ -1545,13 +1527,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_50:
@@ -1576,13 +1558,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_51:
@@ -1607,13 +1589,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_52:
@@ -1638,13 +1620,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_53:
@@ -1669,13 +1651,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_54:
@@ -1700,13 +1682,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_55:
@@ -1731,13 +1713,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_56:
@@ -1762,13 +1744,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_57:
@@ -1793,13 +1775,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_58:
@@ -1824,13 +1806,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_59:
@@ -1855,13 +1837,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_60:
@@ -1886,13 +1868,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_61:
@@ -1917,13 +1899,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_62:
@@ -1948,13 +1930,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_63:
@@ -1979,13 +1961,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_64:
@@ -2010,13 +1992,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_65:
@@ -2041,13 +2023,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_66:
@@ -2072,13 +2054,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_67:
@@ -2103,13 +2085,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_68:
@@ -2134,13 +2116,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_69:
@@ -2165,13 +2147,13 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.1.0
+    - uses: actions/upload-artifact@v4.3.1
       with:
         path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_cuda:
@@ -2191,7 +2173,7 @@ jobs:
       DOCKERHUB_TOKEN:
       DOCKERHUB_USERNAME:
     steps:
-    - uses: actions/checkout@v4.1.0
+    - uses: actions/checkout@v4.1.1
     - name: Pull docker image
       run: |-
         nvidia-smi
