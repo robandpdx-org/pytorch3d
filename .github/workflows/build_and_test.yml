@@ -156,7 +156,7 @@ jobs:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_USERNAME }}
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_TOKEN }}
     steps:
-    - uses: actions/checkout@v4.1.1
+    - uses: actions/checkout@v3
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
     - uses: actions/upload-artifact@v4.3.1
