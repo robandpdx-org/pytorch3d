@@ -168,7 +168,7 @@ jobs:
   binary_linux_conda_cuda:
     runs-on: 4-core-gpu
     container:
-      image: nvidia/cuda:11.6.1-devel-ubuntu20.04
+      image: pytorch/conda-builder:cuda116
       credentials:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
