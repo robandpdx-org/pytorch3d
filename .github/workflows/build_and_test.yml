@@ -168,7 +168,7 @@ jobs:
   binary_linux_conda_cuda:
     runs-on: 4-core-gpu
     container:
-      image: pytorch/conda-builder:cuda116
+      image: pytorch/conda-cuda
       credentials:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -180,18 +180,20 @@ jobs:
       TESTRUN_DOCKER_IMAGE: "pytorch/conda-cuda"
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+      JUST_TESTRUN: 1
     steps:
     - uses: actions/checkout@v3
-    - name: Pull docker image
-      run: |-
-        nvidia-smi
-        set -e
-        { docker login -u="$DOCKERHUB_USERNAME" -p="$DOCKERHUB_TOKEN" ; } 2> /dev/null
-        echo Pulling docker image $TESTRUN_DOCKER_IMAGE
-        docker pull $TESTRUN_DOCKER_IMAGE
+    # - name: Pull docker image
+    #   run: |-
+    #     #nvidia-smi
+    #     set -e
+    #     { docker login -u="$DOCKERHUB_USERNAME" -p="$DOCKERHUB_TOKEN" ; } 2> /dev/null
+    #     echo Pulling docker image $TESTRUN_DOCKER_IMAGE
+    #     docker pull $TESTRUN_DOCKER_IMAGE
     - name: Build and run tests
       run: |-
-        set -e
-        export JUST_TESTRUN=1
-        VARS_TO_PASS="-e PYTHON_VERSION -e BUILD_VERSION -e PYTORCH_VERSION -e CU_VERSION -e JUST_TESTRUN"
-        docker run --gpus all  --ipc=host -v $(pwd):/remote -w /remote ${VARS_TO_PASS} ${TESTRUN_DOCKER_IMAGE} python3 ./packaging/build_conda.py
+        # set -e
+        # export JUST_TESTRUN=1
+        # VARS_TO_PASS="-e PYTHON_VERSION -e BUILD_VERSION -e PYTORCH_VERSION -e CU_VERSION -e JUST_TESTRUN"
+        # docker run --gpus all  --ipc=host -v $(pwd):/remote -w /remote ${VARS_TO_PASS} ${TESTRUN_DOCKER_IMAGE} python3 ./packaging/build_conda.py
+        python3 ./packaging/build_conda.py
