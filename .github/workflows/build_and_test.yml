@@ -162,12 +162,9 @@ jobs:
     - uses: actions/checkout@v3
     - name: build
       run: MAX_JOBS=15 TEST_FLAG=--no-test python3 packaging/build_conda.py
-    - uses: actions/upload-artifact@v4.3.1
+    - uses: actions/upload-artifact@v3
       with:
         path: "/opt/conda/conda-bld/linux-64"
-    - uses: actions/upload-artifact@v4.3.1
-      with:
-        path: "/opt/conda/conda-bld/linux-64/*"
   binary_linux_conda_cuda:
     runs-on: 4-core-gpu
     env:
@@ -186,7 +183,8 @@ jobs:
       run: |-
         nvidia-smi
         set -e
-        { docker login -u="$DOCKERHUB_USERNAME" -p="$DOCKERHUB_TOKEN" ; } 2> /dev/null
+        #{ docker login -u="$DOCKERHUB_USERNAME" -p="$DOCKERHUB_TOKEN" ; } 2> /dev/null
+        docker login -u="$DOCKERHUB_USERNAME" -p="$DOCKERHUB_TOKEN"
         echo Pulling docker image $TESTRUN_DOCKER_IMAGE
         docker pull $TESTRUN_DOCKER_IMAGE
     - name: Build and run tests
