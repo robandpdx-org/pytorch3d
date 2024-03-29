@@ -8,143 +8,126 @@ jobs:
     runs-on: 4-core-gpu
     strategy:
       matrix:
-        python_version: [3.9]
-        pytorch_version: [1.12.1]
-        cu_version: [116]
-        # python_version: [3.8, 3.9, 3.10, 3.11, 3.12]
-        # pytorch_version: [1.12.0, 1.12.1, 1.13.0, 1.3.1, 2.0.0, 2.0.1, 2.1.0, 2.1.1, 2.1.2, 2.2.0]
-        # cu_version: [113, 116, 117, 118, 121]
-        # exclude:
-        #   # exclude pytorch 1.12.0 and cu [117, 118, 121]
-        #   - pytorch_version: 1.12.0
-        #     cu_version: 117
-        #   - pytorch_version: 1.12.0
-        #     cu_version: 118
-        #   - pytorch_version: 1.12.0
-        #     cu_version: 121
-
-        #   # exclude pytorch 1.12.1 and cu [117, 118, 121]
-        #   - pytorch_version: 1.12.1
-        #     cu_version: 117
-        #   - pytorch_version: 1.12.1
-        #     cu_version: 118
-        #   - pytorch_version: 1.12.1
-        #     cu_version: 121
-
-        #   # exclude pytorch 1.13.0 and cu [113, 118, 121]
-        #   - pytorch_version: 1.13.0
-        #     cu_version: 113
-        #   - pytorch_version: 1.13.0
-        #     cu_version: 118
-        #   - pytorch_version: 1.13.0
-        #     cu_version: 121
-          
-        #   # exclude pytorch 1.13.1 and cu [113, 118, 121]
-        #   - pytorch_version: 1.13.1
-        #     cu_version: 113
-        #   - pytorch_version: 1.13.1
-        #     cu_version: 118
-        #   - pytorch_version: 1.13.1
-        #     cu_version: 121
-
-        #   # exclude pytorch 2.0.0 and cu [113, 116, 121]
-        #   - pytorch_version: 2.0.0
-        #     cu_version: 113
-        #   - pytorch_version: 2.0.0
-        #     cu_version: 116
-        #   - pytorch_version: 2.0.0
-        #     cu_version: 121
-
-        #   # exclude pytorch 2.0.1 and cu [113, 116, 121]
-        #   - pytorch_version: 2.0.1
-        #     cu_version: 113
-        #   - pytorch_version: 2.0.1
-        #     cu_version: 116
-        #   - pytorch_version: 2.0.1
-        #     cu_version: 121
-        
-        #   # exclude pytorch 2.1.0 and cu [113, 116, 117]
-        #   - pytorch_version: 2.1.0
-        #     cu_version: 113
-        #   - pytorch_version: 2.1.0
-        #     cu_version: 116
-        #   - pytorch_version: 2.1.0
-        #     cu_version: 117
-
-        #   # exclude pytorch 2.1.1 and cu [113, 116, 117]
-        #   - pytorch_version: 2.1.1
-        #     cu_version: 113
-        #   - pytorch_version: 2.1.1
-        #     cu_version: 116
-        #   - pytorch_version: 2.1.1
-        #     cu_version: 117
-
-        #   # exclude pytorch 2.1.2 and cu [113, 116, 117]
-        #   - pytorch_version: 2.1.2
-        #     cu_version: 113
-        #   - pytorch_version: 2.1.2
-        #     cu_version: 116
-        #   - pytorch_version: 2.1.2
-        #     cu_version: 117
-
-        #   # exclude pytorch 2.2.0 and cu [113, 116, 117]
-        #   - pytorch_version: 2.2.0
-        #     cu_version: 113
-        #   - pytorch_version: 2.2.0
-        #     cu_version: 116
-        #   - pytorch_version: 2.2.0
-        #     cu_version: 117
-
-        #   # exlcude python 3.11 and cu [113, 116, 117]
-        #   - python_version: 3.11
-        #     cu_version: 113
-        #   - python_version: 3.11
-        #     cu_version: 116
-        #   - python_version: 3.11
-        #     cu_version: 117
-          
-        #   # exclude python 3.11 and pytorch [1.12.0, 1.12.1, 1.13.0, 1.3.1, 2.0.0, 2.0.1]
-        #   - python_version: 3.11
-        #     pytorch_version: 1.12.0
-        #   - python_version: 3.11
-        #     pytorch_version: 1.12.1
-        #   - python_version: 3.11
-        #     pytorch_version: 1.13.0
-        #   - python_version: 3.11
-        #     pytorch_version: 1.13.1
-        #   - python_version: 3.11
-        #     pytorch_version: 2.0.0
-        #   - python_version: 3.11
-        #     pytorch_version: 2.0.1
-          
-        #   # exlcude python 3.12 and cu [113, 116, 117]
-        #   - python_version: 3.12
-        #     cu_version: 113
-        #   - python_version: 3.12
-        #     cu_version: 116
-        #   - python_version: 3.12
-        #     cu_version: 117
-          
-        #   # exclude python 3.11 and pytorch [1.12.0, 1.12.1, 1.13.0, 1.3.1, 2.0.0, 2.0.1, 2.1.0, 2.1.1, 2.1.2]
-        #   - python_version: 3.12
-        #     pytorch_version: 1.12.0
-        #   - python_version: 3.12
-        #     pytorch_version: 1.12.1
-        #   - python_version: 3.12
-        #     pytorch_version: 1.13.0
-        #   - python_version: 3.12
-        #     pytorch_version: 1.13.1
-        #   - python_version: 3.12
-        #     pytorch_version: 2.0.0
-        #   - python_version: 3.12
-        #     pytorch_version: 2.0.1
-        #   - python_version: 3.12
-        #     pytorch_version: 2.1.0
-        #   - python_version: 3.12
-        #     pytorch_version: 2.1.1
-        #   - python_version: 3.12
-        #     pytorch_version: 2.1.2
-
+        python_version: [3.8, 3.9, 3.10, 3.11, 3.12]
+        pytorch_version: [1.12.0, 1.12.1, 1.13.0, 1.3.1, 2.0.0, 2.0.1, 2.1.0, 2.1.1, 2.1.2, 2.2.0]
+        cu_version: [113, 116, 117, 118, 121]
+        exclude:
+          # exclude pytorch 1.12.0 and cu [117, 118, 121]
+          - pytorch_version: 1.12.0
+            cu_version: 117
+          - pytorch_version: 1.12.0
+            cu_version: 118
+          - pytorch_version: 1.12.0
+            cu_version: 121
+          # exclude pytorch 1.12.1 and cu [117, 118, 121]
+          - pytorch_version: 1.12.1
+            cu_version: 117
+          - pytorch_version: 1.12.1
+            cu_version: 118
+          - pytorch_version: 1.12.1
+            cu_version: 121
+          # exclude pytorch 1.13.0 and cu [113, 118, 121]
+          - pytorch_version: 1.13.0
+            cu_version: 113
+          - pytorch_version: 1.13.0
+            cu_version: 118
+          - pytorch_version: 1.13.0
+            cu_version: 121
+          # exclude pytorch 1.13.1 and cu [113, 118, 121]
+          - pytorch_version: 1.13.1
+            cu_version: 113
+          - pytorch_version: 1.13.1
+            cu_version: 118
+          - pytorch_version: 1.13.1
+            cu_version: 121
+          # exclude pytorch 2.0.0 and cu [113, 116, 121]
+          - pytorch_version: 2.0.0
+            cu_version: 113
+          - pytorch_version: 2.0.0
+            cu_version: 116
+          - pytorch_version: 2.0.0
+            cu_version: 121
+          # exclude pytorch 2.0.1 and cu [113, 116, 121]
+          - pytorch_version: 2.0.1
+            cu_version: 113
+          - pytorch_version: 2.0.1
+            cu_version: 116
+          - pytorch_version: 2.0.1
+            cu_version: 121
+          # exclude pytorch 2.1.0 and cu [113, 116, 117]
+          - pytorch_version: 2.1.0
+            cu_version: 113
+          - pytorch_version: 2.1.0
+            cu_version: 116
+          - pytorch_version: 2.1.0
+            cu_version: 117
+          # exclude pytorch 2.1.1 and cu [113, 116, 117]
+          - pytorch_version: 2.1.1
+            cu_version: 113
+          - pytorch_version: 2.1.1
+            cu_version: 116
+          - pytorch_version: 2.1.1
+            cu_version: 117
+          # exclude pytorch 2.1.2 and cu [113, 116, 117]
+          - pytorch_version: 2.1.2
+            cu_version: 113
+          - pytorch_version: 2.1.2
+            cu_version: 116
+          - pytorch_version: 2.1.2
+            cu_version: 117
+          # exclude pytorch 2.2.0 and cu [113, 116, 117]
+          - pytorch_version: 2.2.0
+            cu_version: 113
+          - pytorch_version: 2.2.0
+            cu_version: 116
+          - pytorch_version: 2.2.0
+            cu_version: 117
+          # exlcude python 3.11 and cu [113, 116, 117]
+          - python_version: 3.11
+            cu_version: 113
+          - python_version: 3.11
+            cu_version: 116
+          - python_version: 3.11
+            cu_version: 117
+          # exclude python 3.11 and pytorch [1.12.0, 1.12.1, 1.13.0, 1.3.1, 2.0.0, 2.0.1]
+          - python_version: 3.11
+            pytorch_version: 1.12.0
+          - python_version: 3.11
+            pytorch_version: 1.12.1
+          - python_version: 3.11
+            pytorch_version: 1.13.0
+          - python_version: 3.11
+            pytorch_version: 1.13.1
+          - python_version: 3.11
+            pytorch_version: 2.0.0
+          - python_version: 3.11
+            pytorch_version: 2.0.1
+          # exlcude python 3.12 and cu [113, 116, 117]
+          - python_version: 3.12
+            cu_version: 113
+          - python_version: 3.12
+            cu_version: 116
+          - python_version: 3.12
+            cu_version: 117
+          # exclude python 3.11 and pytorch [1.12.0, 1.12.1, 1.13.0, 1.3.1, 2.0.0, 2.0.1, 2.1.0, 2.1.1, 2.1.2]
+          - python_version: 3.12
+            pytorch_version: 1.12.0
+          - python_version: 3.12
+            pytorch_version: 1.12.1
+          - python_version: 3.12
+            pytorch_version: 1.13.0
+          - python_version: 3.12
+            pytorch_version: 1.13.1
+          - python_version: 3.12
+            pytorch_version: 2.0.0
+          - python_version: 3.12
+            pytorch_version: 2.0.1
+          - python_version: 3.12
+            pytorch_version: 2.1.0
+          - python_version: 3.12
+            pytorch_version: 2.1.1
+          - python_version: 3.12
+            pytorch_version: 2.1.2
     container:
       image: pytorch/conda-builder:cuda${{ matrix.cu_version }}
       credentials:
