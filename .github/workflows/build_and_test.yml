@@ -167,14 +167,17 @@ jobs:
         path: "/opt/conda/conda-bld/linux-64"
   binary_linux_conda_cuda:
     runs-on: 4-core-gpu
+    container:
+      image: linux-cuda-11:default
+      credentials:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
     env:
       PYTHON_VERSION: "3.10"
       BUILD_VERSION: "${{ github.run_number }}"
       PYTORCH_VERSION: "2.0.1"
       CU_VERSION: "cu117"
       TESTRUN_DOCKER_IMAGE: "pytorch/conda-cuda"
-      wheel_docker_image: pytorch/manylinux-cuda101
-      conda_docker_image: pytorch/conda-cuda
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
     steps:
