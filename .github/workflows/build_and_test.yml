@@ -145,16 +145,16 @@ jobs:
     container:
       image: pytorch/conda-builder:cuda${{ matrix.cu_version }}
       credentials:
-        username: "${{ secrets.DOCKERHUB_USERNAME }}"
-        password: "${{ secrets.DOCKERHUB_TOKEN }}"
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
     env:
       PYTHON_VERSION: "${{ matrix.python_version }}"
       BUILD_VERSION: "${{ github.run_number }}"
       PYTORCH_VERSION: "${{ matrix.pytorch_version }}"
       CU_VERSION: "cu${{ matrix.cu_version }}"
       TESTRUN_DOCKER_IMAGE: "pytorch/conda-builder:cuda${{ matrix.cu_version }}"
-      DOCKERHUB_TOKEN: "${{ secrets.DOCKERHUB_USERNAME }}"
-      DOCKERHUB_USERNAME: "${{ secrets.DOCKERHUB_TOKEN }}"
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_TOKEN }}
     steps:
     - uses: actions/checkout@v4.1.1
     - name: build
@@ -175,8 +175,8 @@ jobs:
       TESTRUN_DOCKER_IMAGE: "pytorch/conda-cuda"
       wheel_docker_image: pytorch/manylinux-cuda101
       conda_docker_image: pytorch/conda-cuda
-      DOCKERHUB_TOKEN: "${{ secrets.DOCKERHUB_USERNAME }}"
-      DOCKERHUB_USERNAME: "${{ secrets.DOCKERHUB_TOKEN }}"
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_TOKEN }}
     steps:
     - uses: actions/checkout@v4.1.1
     - name: Pull docker image
