@@ -149,6 +149,7 @@ jobs:
       with:
         path: "/opt/conda/conda-bld/linux-64"
   binary_linux_conda_cuda:
+    timeout-minutes: 600
     runs-on: 4-core-gpu
     container:
       image: pytorch/conda-cuda
