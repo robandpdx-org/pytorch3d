@@ -7,6 +7,7 @@ jobs:
   binary_linux_conda:
     runs-on: 4-core-gpu
     strategy:
+      fail-fast: false
       matrix:
         python_version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
         pytorch_version: ["1.12.0", "1.12.1", "1.13.0", "1.13.1", "2.0.0", "2.0.1", "2.1.0", "2.1.1", "2.1.2", "2.2.0"]
